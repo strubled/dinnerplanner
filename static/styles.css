@@ -1,3 +1,86 @@
-#add-meal {
+body {
+    padding: 0;
+    margin: 0;
+    background: #f2f6e9;
+}
+#rule_form {
+    margin: auto;
+    width: 50%;
+    padding: 30px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: darkgray;
+    border-width: 1px;
+    background: white;
+}
+#rule_table {
+    margin: auto;
+    width: 60%;
+    padding: 30px;
+    margin-top: 20px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: darkgray;
+    border-width: 1px;
+    background: white;
+}
+#get_meal_form {
+    margin: auto;
+    width: 50%;
+    padding: 30px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: darkgray;
+    border-width: 1px;
+    background: white;
+}
+#meal_form {
+    margin: auto;
+    width: 50%;
+    padding: 30px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: darkgray;
+    border-width: 1px;
+    background: white;
+}
+#meal_table {
+    margin: auto;
+    width: 60%;
+    padding: 30px;
+    margin-top: 20px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: darkgray;
+    border-width: 1px;
+    background: white;
+}
+#rule_text {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+#section_header {
+    text-align: left;
+    font-style: italic;
+    font-size: 18px;
 
+    color: gray;
+    padding-bottom: 20px;
+    margin-top: -10px;
+}
+#section_header_small {
+    text-align: left;
+    font-style: italic;
+    font-size: 12px;
+
+    color: gray;
+    padding-top: 20px;
+}
+#today_meal{
+    text-align: left;
+    font-style: bold;
+    color: blue;
+    padding-bottom: 20px;
+    margin-top: -15px;
 }
