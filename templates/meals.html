@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Menu
+{% endblock %}
+
+{% block main %}
+
+ 
+<div class="container text-center">  
+    <div class="row">
+        <div class="col-12">
+            <h1>Your Meals</h1>
+        </div>
+        <div class="mb-2">
+            {{ message }}
+            </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mb-2" id="rule_text">
+            <p>Add your meals and the rules associated with them.</p> 
+        </div>
+    </div>
+    <div class="w-100"></div>
+    <div class="row" id="meal_form">
+        <div class="col-6" >
+            <h4 id="section_header">Add a Meal</h4>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-6" >
+            <form action="/meals" method="post">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="mealname" name="mealname" placeholder="Hot dogs" type="text">
+            </div>
+            <div class="col-6">
+                <button class="btn btn-primary form-control" type="submit">Save Meal</button>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-12" >
+                <h5 id="section_header_small">Optional Rules:</h5>
+            </div>
+            <div class="w-100"></div>
+                {% for rules in rules %}
+                
+                <div class="col-3">
+                    <input name="rule" type="checkbox" value="{{ rules[1] }}"> {{ rules[1] }}
+                </div>
+                {% endfor %}
+            </form>
+        </div>
+    
+
+ 
+        <div class="col-9" id="meal_table">
+            <h1 id="section_header">Your Meals</h1> 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Rules</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for meals in meals %}
+                        <tr>
+                            <td>{{ meals[1] }}</td>
+                            <td style="text-align:left"><ul>{% for meals in meals[2] %} <li>{{ meals }}</li> {% endfor %}</ul> </td>
+                            <td> <form action="/deletemeal" method="post">
+                                    <input type="hidden" id="meal_id" name="meal_id" value="{{ meals[0] }}">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+</div>
+{% endblock %}

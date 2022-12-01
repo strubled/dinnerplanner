@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Time to Eat
+{% endblock %}
+
+{% block main %}
+<div class="container text-center">  
+    <div class="row">
+        <div class="col-12">
+            <h1>What's for Dinner?</h1>
+        </div>
+    </div>
+
+    <div class="w-100"></div>
+    <div class="row">
+        <div class="col-6 mb-2" id="rule_text">
+            <p>Tonight's dinner is about to be figured out!</p> 
+    </div>
+    </div>
+    <div class="w-100"></div>
+    <div class="row" id="get_meal_form">
+        <div class="col-6" >
+            <h4 id="section_header">Your dinner is:</h4>
+        </div>
+        <div class="col-6" >
+            <h4 id="today_meal">{{ meal }}</h4>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-12" >
+            <form action="/" method="post">
+            
+                <button class="btn btn-primary form-control" type="submit">Find a Meal</button>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-12" >
+                <h5 id="section_header_small">Optional Rules:</h5>
+            </div>
+            <div class="w-100"></div>
+                {% for rules in rules %}
+                <div class="col-3">
+                    <input name="rule" type="checkbox" value="{{ rules[1] }}"> {{ rules[1] }}
+                </div>
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+</div>
+    
+
+{% endblock %}

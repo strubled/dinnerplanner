@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+{{ alert }}
+    <form action="/forgot_pw" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="youremail@gmail.com" type="email">
+        </div>
+        <button class="btn btn-primary" type="submit">Reset Password</button>
+    </form>
+{% endblock %}
