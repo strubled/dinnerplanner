@@ -1,10 +1,8 @@
 import os
 
-from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
-from werkzeug.security import check_password_hash, generate_password_hash
 from flask_mail import Mail, Message
 import psycopg2
 import re
@@ -12,8 +10,9 @@ import random
 from oauthlib.oauth2 import WebApplicationClient
 import requests
 import json
+from urllib.parse import urlparse
 
-from helpers import apology, login_required, lookup, usd
+from helpers import apology, login_required
 
 # Configure application
 app = Flask(__name__)
@@ -29,31 +28,20 @@ GOOGLE_DISCOVERY_URL = (
 # OAuth 2 client setup
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
-#Configure email
-mail_settings = {
-    "MAIL_SERVER": 'smtp.gmail.com',
-    "MAIL_PORT": 465,
-    "MAIL_USE_TLS": False,
-    "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": os.environ['MAIL_USERNAME'],
-    "MAIL_PASSWORD": os.environ['MAIL_PASSWORD']
-}
-app.config.update(mail_settings)
-mail = Mail(app)
+#connection = psycopg2.connect(user="dstruble",
+ #                                 password="dan112",
+ #                                 host="127.0.0.1",
+ #                                 port="5432",
+ #                                 database="dinnerplanner")
 
-connection = psycopg2.connect(user="dstruble",
-                                  password="dan112",
-                                  host="127.0.0.1",
-                                  port="5432",
-                                  database="dstruble")
+
+url = urlparse.urlparse(os.environ.get('DATABASE_URL'))
+connection = "dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname)
+schema = "schema.sql"
 cursor = connection.cursor()
-print 
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
-
-# Custom filter
-app.jinja_env.filters["usd"] = usd
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
