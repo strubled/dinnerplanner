@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Rules
+{% endblock %}
+
+{% block main %}
+
+ 
+<div class="container text-center" >  
+
+    <div class="row">
+        <div class="col-12">
+            <h1>Dinner Rules</h1>
+        </div>
+        <div class="mb-2">
+            {{ message }}
+            </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mb-2" id="rule_text">
+            <p>You can apply rules to your meals - say you don't want to eat cheese or you want to eat meat...whatever you want, it's up to you! </p> 
+    </div>
+    </div>
+    <div class="w-100"></div>
+    <div class="row" id="rule_form">
+        <div class="col-6" >
+            <h4 id="section_header">Add a Rule</h4>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-6" >
+            <form action="/rules" method="post">
+            
+                <input autocomplete="off" size="50" autofocus class="form-control" id="rulename" name="rulename" placeholder="Has cheese" type="text">
+            </div>
+            <div class="col-6">
+                <button class="btn btn-primary form-control" type="submit">Save Rule</button>
+            </form>
+        </div>
+    </div>
+    <div class="w-100"></div>
+    <div class="row"  id="rule_table">  
+        <div class="col-6" >
+            <h4 id="section_header">Your Rules</h4>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-12">
+            
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for rules in rules %}
+                        <tr>
+                            <td>{{ rules[1] }}</td>
+                            <td> <form action="/deleterule" method="post">
+                                    <input type="hidden" id="rule_id" name="rule_id" value="{{ rules[0] }}">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+</div>
+</div>
+{% endblock %}
