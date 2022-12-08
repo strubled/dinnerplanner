@@ -32,4 +32,15 @@ I really want to build a 7 day view based on additional rules.  For example, let
 
 - when testing in dev, Google needs SSL.  To fake this out, run your app with FLASK_APP="app:app" flask run --cert=adhoc
 
+## Imagery
+### Home Page
+![Screen Shot 2022-12-07 at 10 28 06 PM](https://user-images.githubusercontent.com/15272613/206349740-5372296c-29bc-48f1-a008-1c9a546c2551.png)
+### Dinner Rules
+![Screen Shot 2022-12-07 at 10 27 54 PM](https://user-images.githubusercontent.com/15272613/206349742-b5f78aed-2c88-4f7e-a092-f372d58e34d3.png)
+### Meals
+![Screen Shot 2022-12-07 at 10 27 40 PM](https://user-images.githubusercontent.com/15272613/206349744-9c37e4a2-4bb4-4bdf-8cf9-6b398c9495da.png)
+### Login
+![Screen Shot 2022-12-07 at 10 26 47 PM](https://user-images.githubusercontent.com/15272613/206349748-dc89310a-f4a7-4e53-8753-a55cfc61cf48.png)
+![Screen Shot 2022-12-07 at 10 27 03 PM](https://user-images.githubusercontent.com/15272613/206349747-9a5f0acf-dddd-4659-b906-522f07f3a35b.png)
+
 
